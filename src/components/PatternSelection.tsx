@@ -10,8 +10,8 @@ const PatternSelection = () => {
     {
       title: 'Chinese Spiral Staircase / Candy Stripe',
       description: 'A beautiful spiral pattern perfect for beginners. Learn the forward knot to create this classic design.',
-      image: 'images/spiral-preview.jpg',
-      placeholderText: 'A spiral pattern bracelet\nMade with forward knots in a continuous spiral design\nPerfect for beginners',
+      image: '',
+      placeholderText: 'Spiral Staircase Pattern\nA twisted rope pattern that creates a beautiful spiral effect\nPerfect for beginners - uses only forward knots\nMade with 4 strands of embroidery floss',
       path: 'spiral'
     },
     {
