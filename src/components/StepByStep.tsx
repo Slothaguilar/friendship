@@ -76,6 +76,38 @@ const StepByStep = () => {
           ]
         }
       ]
+    },
+    candy: {
+      title: 'Candy Stripe Pattern Tutorial',
+      steps: [
+        {
+          title: 'Prepare Your Materials',
+          content: '4-6 strands of embroidery floss\nScissors\nTape or clipboard',
+          image: 'https://i.pinimg.com/736x/33/af/86/33af866fe9d8997981f41b33094b51dc.jpg',
+          placeholderText: 'Materials needed for candy stripe pattern'
+        },
+        {
+          title: 'Set Up Your Strings',
+          content: 'Choose 4-6 colors for your pattern\nCut strings to equal lengths (24-36 inches)\nTie all strings together at one end\nSecure with tape or clip',
+          image: 'https://i.pinimg.com/736x/33/af/86/33af866fe9d8997981f41b33094b51dc.jpg',
+          placeholderText: 'Setting up strings for candy stripe'
+        },
+        {
+          title: 'Start the Pattern',
+          sections: [
+            {
+              content: 'Take the leftmost string and create forward knots across all strings to the right',
+              image: 'https://i.pinimg.com/736x/33/af/86/33af866fe9d8997981f41b33094b51dc.jpg',
+              placeholderText: 'Creating forward knots'
+            },
+            {
+              content: 'Continue this pattern with each string, moving from left to right. Each string should make forward knots across all strings to its right.',
+              image: 'https://i.pinimg.com/736x/33/af/86/33af866fe9d8997981f41b33094b51dc.jpg',
+              placeholderText: 'Continuing the pattern'
+            }
+          ]
+        }
+      ]
     }
   }
 
@@ -244,13 +276,13 @@ const StepByStep = () => {
               
               {currentStep === tutorial.steps.length - 1 ? (
                 <Button 
-                  onClick={() => navigate('/')}
+                  onClick={() => navigate('/?tab=patterns')}
                   _hover={{
                     transform: 'translateY(-2px)',
                     boxShadow: 'lg',
                   }}
                 >
-                  Watch Video & Complete
+                  Complete Tutorial
                 </Button>
               ) : (
                 <Button 

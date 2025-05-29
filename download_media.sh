@@ -6,6 +6,7 @@ mkdir -p public/videos
 
 # Download pattern preview images
 curl -o public/images/spiral-preview.jpg "https://theneonteaparty.com/wp-content/uploads/2023/08/candy-stripe-bracelet-tutorial.jpg"
+curl -o public/images/candy-stripe.jpg "https://content.instructables.com/FU2/4C96/GVU6OEWE/FU24C96GVU6OEWE.jpg"
 curl -o public/images/chevron-preview.jpg "https://www.instructables.com/files/deriv/FU6/96YR/HNOBNP0I/FU696YRHNOBNP0I.LARGE.jpg"
 
 # Download materials and setup images

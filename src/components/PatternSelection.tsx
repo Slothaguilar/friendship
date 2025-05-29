@@ -15,11 +15,11 @@ const PatternSelection = () => {
       path: 'spiral'
     },
     {
-      title: 'Chevron Pattern',
-      description: 'Create stunning zigzag patterns using forward and backward knots.',
-      image: 'images/chevron-preview.jpg',
-      placeholderText: 'Chevron pattern bracelet\nMade with alternating forward and backward knots\nCreates a beautiful V-shaped design',
-      path: 'chevron'
+      title: 'Candy Stripe Pattern',
+      description: 'Create a classic candy stripe pattern using forward knots in sequence.',
+      image: 'https://i.pinimg.com/736x/33/af/86/33af866fe9d8997981f41b33094b51dc.jpg',
+      placeholderText: 'Candy stripe pattern bracelet\nMade with forward knots in sequence\nCreates a diagonal striped design',
+      path: 'candy'
     }
   ]
 
