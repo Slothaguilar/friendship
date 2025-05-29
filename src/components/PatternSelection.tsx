@@ -8,7 +8,7 @@ const PatternSelection = () => {
 
   const patterns = [
     {
-      title: 'Chinese Spiral Staircase / Candy Stripe',
+      title: 'Chinese Spiral Staircase',
       description: 'A beautiful spiral pattern perfect for beginners. Learn the forward knot to create this classic design.',
       image: 'images/spiral-bracelet.jpg',
       placeholderText: '',
