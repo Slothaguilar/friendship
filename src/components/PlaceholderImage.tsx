@@ -12,8 +12,8 @@ const PlaceholderImage = ({
   width,
   height,
   text,
-  bgColor = 'gray.100',
-  textColor = 'gray.600'
+  bgColor = 'gray.800',
+  textColor = 'whiteAlpha.900'
 }: PlaceholderImageProps) => {
   return (
     <Box
@@ -23,12 +23,14 @@ const PlaceholderImage = ({
       display="flex"
       alignItems="center"
       justifyContent="center"
-      borderRadius="md"
+      borderRadius="xl"
       p={4}
+      border="1px solid"
+      borderColor="whiteAlpha.200"
     >
       <Text
         color={textColor}
-        fontSize="sm"
+        fontSize="md"
         textAlign="center"
         whiteSpace="pre-wrap"
       >

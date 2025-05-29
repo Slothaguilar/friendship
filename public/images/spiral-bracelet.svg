@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="spiral" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B6B"/>
+      <stop offset="50%" style="stop-color:#4ECDC4"/>
+      <stop offset="100%" style="stop-color:#45B7D1"/>
+    </linearGradient>
+  </defs>
+  <path d="M50,100 C100,50 300,150 350,100" stroke="url(#spiral)" stroke-width="20" fill="none"/>
+  <path d="M50,100 C100,150 300,50 350,100" stroke="url(#spiral)" stroke-width="20" fill="none" opacity="0.7"/>
+  <text x="200" y="180" text-anchor="middle" font-family="Arial" font-size="16" fill="#666">
+    Chinese Spiral Staircase Pattern
+  </text>
+</svg> 

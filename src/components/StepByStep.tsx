@@ -9,9 +9,10 @@ import {
   HStack,
   List,
   ListItem,
-  ListIcon
+  ListIcon,
+  useColorModeValue
 } from '@chakra-ui/react'
-import { CheckCircleIcon } from '@chakra-ui/icons'
+import { CheckCircleIcon, ArrowBackIcon } from '@chakra-ui/icons'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import MediaAsset from './MediaAsset'
@@ -21,6 +22,8 @@ const StepByStep = () => {
   const { pattern } = useParams()
   const [currentStep, setCurrentStep] = useState(0)
   const [completedSteps, setCompletedSteps] = useState<number[]>([])
+
+  const cardBg = useColorModeValue('gray.800', 'gray.700')
 
   const tutorials = {
     spiral: {
@@ -77,9 +80,17 @@ const StepByStep = () => {
     return (
       <Container maxW="container.md" py={8}>
         <VStack spacing={4}>
-          <Heading>Pattern Not Found</Heading>
-          <Text>Please select a valid pattern to learn.</Text>
-          <Button onClick={() => navigate('/')} colorScheme="teal">
+          <Heading 
+            bgGradient="linear(to-r, #7928CA, #FF0080)"
+            bgClip="text"
+          >
+            Pattern Not Found
+          </Heading>
+          <Text color="whiteAlpha.900">Please select a valid pattern to learn.</Text>
+          <Button 
+            leftIcon={<ArrowBackIcon />}
+            onClick={() => navigate('/')}
+          >
             Return Home
           </Button>
         </VStack>
@@ -110,31 +121,70 @@ const StepByStep = () => {
   return (
     <Container maxW="container.md" py={8}>
       <VStack spacing={6} align="stretch">
-        <Heading textAlign="center">{tutorial.title}</Heading>
-        <Progress value={progress} colorScheme="teal" />
+        <Button
+          leftIcon={<ArrowBackIcon />}
+          onClick={() => navigate('/')}
+          variant="ghost"
+          alignSelf="flex-start"
+          color="whiteAlpha.900"
+          _hover={{ bg: 'whiteAlpha.200' }}
+        >
+          Back to Patterns
+        </Button>
         
-        <Box borderWidth={1} borderRadius="lg" p={6}>
+        <Heading 
+          textAlign="center"
+          bgGradient="linear(to-r, #7928CA, #FF0080)"
+          bgClip="text"
+          letterSpacing="2px"
+        >
+          {tutorial.title}
+        </Heading>
+        
+        <Progress 
+          value={progress} 
+          colorScheme="purple"
+          bg="whiteAlpha.200"
+          borderRadius="xl"
+        />
+        
+        <Box 
+          borderWidth={1} 
+          borderRadius="xl" 
+          p={6}
+          bg={cardBg}
+          borderColor="whiteAlpha.200"
+          boxShadow="2xl"
+        >
           <VStack spacing={4} align="stretch">
-            <Heading size="md">
+            <Heading 
+              size="md"
+              bgGradient="linear(to-r, #7928CA, #FF0080)"
+              bgClip="text"
+            >
               Step {currentStep + 1}: {tutorial.steps[currentStep].title}
             </Heading>
             
-            <MediaAsset
-              src={tutorial.steps[currentStep].image}
-              alt={tutorial.steps[currentStep].title}
-              placeholderText={tutorial.steps[currentStep].placeholderText}
-              height="300px"
-            />
+            <Box borderRadius="xl" overflow="hidden">
+              <MediaAsset
+                src={tutorial.steps[currentStep].image}
+                alt={tutorial.steps[currentStep].title}
+                placeholderText={tutorial.steps[currentStep].placeholderText}
+                height="300px"
+              />
+            </Box>
 
-            <Text whiteSpace="pre-line">{tutorial.steps[currentStep].content}</Text>
+            <Text color="whiteAlpha.900" fontSize="lg" whiteSpace="pre-line">
+              {tutorial.steps[currentStep].content}
+            </Text>
 
             <List spacing={2}>
               {tutorial.steps[currentStep].content.split('\n').map((line, index) => (
                 <ListItem key={index} display="flex" alignItems="center">
                   {completedSteps.includes(currentStep) && (
-                    <ListIcon as={CheckCircleIcon} color="green.500" />
+                    <ListIcon as={CheckCircleIcon} color="#7928CA" />
                   )}
-                  <Text>{line}</Text>
+                  <Text color="whiteAlpha.900">{line}</Text>
                 </ListItem>
               ))}
             </List>
@@ -143,28 +193,39 @@ const StepByStep = () => {
               <Button
                 onClick={handlePrevious}
                 isDisabled={currentStep === 0}
-                colorScheme="teal"
                 variant="outline"
+                _hover={{
+                  transform: 'translateY(-2px)',
+                  boxShadow: 'lg',
+                }}
               >
                 Previous Step
               </Button>
               
               {currentStep === tutorial.steps.length - 1 ? (
-                <Button onClick={handleComplete} colorScheme="teal">
+                <Button 
+                  onClick={handleComplete}
+                  _hover={{
+                    transform: 'translateY(-2px)',
+                    boxShadow: 'lg',
+                  }}
+                >
                   Start Practice
                 </Button>
               ) : (
-                <Button onClick={handleNext} colorScheme="teal">
+                <Button 
+                  onClick={handleNext}
+                  _hover={{
+                    transform: 'translateY(-2px)',
+                    boxShadow: 'lg',
+                  }}
+                >
                   Next Step
                 </Button>
               )}
             </HStack>
           </VStack>
         </Box>
-
-        <Button variant="ghost" onClick={() => navigate('/')}>
-          Back to Home
-        </Button>
       </VStack>
     </Container>
   )
