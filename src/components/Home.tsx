@@ -17,13 +17,20 @@ import {
 } from '@chakra-ui/react'
 import { MdCheckCircle } from 'react-icons/md'
 import PatternSelection from './PatternSelection'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const Home = () => {
   const cardBg = useColorModeValue('gray.800', 'gray.700')
   const [currentView, setCurrentView] = useState<'about' | 'patterns'>('about')
   const navigate = useNavigate()
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.state?.view === 'patterns') {
+      setCurrentView('patterns')
+    }
+  }, [location.state])
 
   const AboutContent = () => (
     <VStack spacing={6} align="stretch">

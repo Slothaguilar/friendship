@@ -1,5 +1,6 @@
 import { Box, Image, AspectRatio, Text } from '@chakra-ui/react'
 import PlaceholderImage from './PlaceholderImage'
+import { useState } from 'react'
 
 interface MediaAssetProps {
   src: string
@@ -20,13 +21,16 @@ const MediaAsset = ({
   aspectRatio,
   placeholderText
 }: MediaAssetProps) => {
+  const [hasError, setHasError] = useState(false)
+
   // Check if the source is a URL or a local file
   const isExternalUrl = src.startsWith('http')
-  const assetPath = isExternalUrl ? src : `/${src}`
+  const assetPath = isExternalUrl ? src : src.startsWith('/') ? src : `/${src}`
 
   // Handle loading errors
   const handleError = (e: React.SyntheticEvent<HTMLImageElement | HTMLVideoElement, Event>) => {
     console.error(`Error loading ${type}:`, e)
+    setHasError(true)
   }
 
   const mediaContent = type === 'video' ? (
@@ -40,26 +44,35 @@ const MediaAsset = ({
         <Text>Your browser does not support the video tag.</Text>
       </video>
     </AspectRatio>
+  ) : hasError ? (
+    <PlaceholderImage
+      width={width}
+      height={height}
+      text={`Unable to load ${alt}\nPath: ${assetPath}`}
+    />
   ) : (
     <Image
       src={assetPath}
       alt={alt}
-      width={width}
-      height={height}
-      objectFit="cover"
+      width="100%"
+      height="100%"
+      objectFit="contain"
       onError={handleError}
-      fallback={
-        <PlaceholderImage
-          width={width}
-          height={height}
-          text={placeholderText || `Unable to load ${alt}`}
-        />
-      }
+      borderRadius="xl"
     />
   )
 
   return (
-    <Box width={width} height={height}>
+    <Box 
+      width={width} 
+      height={height}
+      bg="gray.700"
+      borderRadius="xl"
+      overflow="hidden"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
       {mediaContent}
     </Box>
   )

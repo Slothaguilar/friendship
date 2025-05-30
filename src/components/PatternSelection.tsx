@@ -10,7 +10,7 @@ const PatternSelection = () => {
     {
       title: 'Chinese Spiral Staircase',
       description: 'A beautiful spiral pattern perfect for beginners. Learn the forward knot to create this classic design.',
-      image: 'images/spiral-bracelet.jpg',
+      image: 'https://choosefriendship.com/cdn/shop/articles/Twist_1200x.jpg?v=1601441598',
       placeholderText: '',
       path: 'spiral'
     },
