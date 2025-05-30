@@ -235,7 +235,7 @@ const StepByStep = () => {
             {'sections' in tutorial.steps[currentStep] && tutorial.steps[currentStep].sections ? (
               <VStack spacing={2} align="stretch">
                 {tutorial.steps[currentStep].sections.map((section, index) => (
-                  <>
+                  <Box key={index}>
                     <Text color="whiteAlpha.900" fontSize="lg" whiteSpace="pre-line">
                       {section.content}
                     </Text>
@@ -257,7 +257,7 @@ const StepByStep = () => {
                         height="400px"
                       />
                     </Box>
-                  </>
+                  </Box>
                 ))}
               </VStack>
             ) : (

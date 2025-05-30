@@ -48,7 +48,7 @@ const MediaAsset = ({
     <PlaceholderImage
       width={width}
       height={height}
-      text={`Unable to load ${alt}\nPath: ${assetPath}`}
+      text={placeholderText || `Unable to load ${alt}\nPath: ${assetPath}`}
     />
   ) : (
     <Image
