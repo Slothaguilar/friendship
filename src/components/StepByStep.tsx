@@ -79,7 +79,7 @@ const StepByStep = () => {
           title: 'Continue the Pattern',
           sections: [
             {
-              content: 'Keep using the same string to make knots\nMake sure each knot is tight and even\nThe working string will naturally spiral around the other strings\nMake 5 knots with each color string before moving to the next color',
+              content: 'Keep using the same string to make knots\nMake sure each knot is tight and even\nThe working string will naturally spiral around the other strings',
               image: 'https://content.instructables.com/FS6/4KC7/GVU6OEXK/FS64KC7GVU6OEXK.jpg?auto=webp&frame=1&width=933&height=1024&fit=bounds&md=MjAxMy0xMi0xNSAyMjo0MTo1OS4w',
               placeholderText: 'Continuing the spiral pattern'
             },
